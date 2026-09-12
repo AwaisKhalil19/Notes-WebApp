@@ -32,13 +32,13 @@ const CreatePost = () => {
           }
 
 
-          await axios.patch(`http://localhost:3000/posts/${editPost._id}`, formData)
+          await axios.patch(`https://notes-web-app-wre5.vercel.app/posts/${editPost._id}`, formData)
                 
         } else {
 
            const formData = new FormData(e.target)
 
-          await axios.post("http://localhost:3000/create-post", formData);
+          await axios.post("https://notes-web-app-wre5.vercel.app/create-post", formData);
 
         }
         navigate("/")

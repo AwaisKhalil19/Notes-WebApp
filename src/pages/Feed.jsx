@@ -20,7 +20,7 @@ const Feed = () => {
 
     useEffect(()=>{
 
-        axios.get("http://localhost:3000/posts")
+        axios.get("https://notes-web-app-wre5.vercel.app/posts")
         .then((res)=>{
 
             setPosts(res.data.posts)
@@ -36,7 +36,7 @@ const Feed = () => {
     }
 
     const handleDelete = async (id) => {
-        await axios.delete(`http://localhost:3000/posts/${id}`)  
+        await axios.delete(`https://notes-web-app-wre5.vercel.app/posts/${id}`)  
 
         setPosts((prevPosts)=>{
            return prevPosts.filter((post)=> post._id !== id )
