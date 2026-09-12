@@ -7,9 +7,9 @@ const Navbar = () => {
         navigate("/");
     };
 
-    const handleCreatePost = () => {
-        navigate("/create-post");
-    };
+    // const handleCreatePost = () => {
+    //     navigate("/create-post");
+    // };
 
     return (
         <nav className="navbar">
