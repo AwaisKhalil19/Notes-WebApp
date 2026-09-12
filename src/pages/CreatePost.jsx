@@ -43,8 +43,8 @@ const CreatePost = () => {
         }
         navigate("/")
       } catch (error){
-        console.log(error);
-        error("Post Not Create or Update");
+        alert("Post Not Create or Update");
+        console.log(error)
       }
         
     }
