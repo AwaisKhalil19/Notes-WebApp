@@ -10,21 +10,20 @@ const Feed = () => {
 
     const navigate = useNavigate(); 
 
-    const [ posts, setPosts ] = useState([
-        {
-            _id: "1",
-            image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-            caption: "Beautiful scenery",
-        }
-    ])
+    const [ posts, setPosts ] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
 
         axios.get("https://notes-web-app-wre5.vercel.app/posts")
         .then((res)=>{
 
+            console.log("API POSTS:", res.data.posts)
             setPosts(res.data.posts)
 
+        })
+        .finally(() => {
+            setLoading(false);
         })
         
     },[])
@@ -45,7 +44,11 @@ const Feed = () => {
     }
 
     const handleUpdate = (id) => {
+
+        console.log("EDIT ID", id)
         const post = posts.find((post) => post._id === id);
+
+        console.log("EDIT ID", post)
     
         navigate("/create-post", {
             state: {
@@ -63,7 +66,9 @@ const Feed = () => {
 
         <div className='feed-div'>
 
-            {
+            { loading ? (
+                <h1>Loading...</h1>
+            ) :
                 posts.length > 0 ? (
                     posts.map((post) => (
                         <div key={post._id} className='post-card' >
