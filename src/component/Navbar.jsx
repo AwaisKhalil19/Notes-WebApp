@@ -1,44 +1,32 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+
     const navigate = useNavigate();
 
     const handleFeed = () => {
         navigate("/");
-    };
 
-    // const handleCreatePost = () => {
-    //     navigate("/create-post");
-    // };
+        console.log("Clicked")
+    }
+
+
+
 
     return (
         <nav className="navbar">
             <div className="navbar-container">
 
-                <button
-                    type="button"
-                    className="navbar-logo"
-                    onClick={handleFeed}
-                >
+            
+                <Link to="/create-post" className="navbar-logo">
                     Notes<span>.</span>
-                </button>
+                </Link>
 
+                
                 <div className="navbar-links">
-                    <button
-                        type="button"
-                        className="nav-link"
-                        onClick={handleFeed}
-                    >
+                    <button type="button" className="nav-link" onClick={handleFeed}>
                         Feed
                     </button>
-
-                    {/* <button
-                        type="button"
-                        className="nav-link"
-                        onClick={handleCreatePost}
-                    >
-                        Add Post
-                    </button> */}
                 </div>
 
             </div>
