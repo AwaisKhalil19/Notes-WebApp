@@ -31,7 +31,7 @@ const CreatePost = () => {
             formData.append("image", image)
           }
 
-          await axios.patch(`https://notes-web-app-wre5.vercel.app/posts/${editPost._id}`, formData)
+          await axios.patch(`https://notes-backend-five-phi.vercel.app//posts/${editPost._id}`, formData)
 
           console.log("EDIT POST", editPost)
           console.log("EDIT ID", editPost?._id)
@@ -40,7 +40,7 @@ const CreatePost = () => {
 
            const formData = new FormData(e.target)
 
-          await axios.post("https://notes-web-app-wre5.vercel.app/create-post", formData);
+          await axios.post("https://notes-backend-five-phi.vercel.app//create-post", formData);
 
         }
         navigate("/")

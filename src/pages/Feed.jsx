@@ -15,7 +15,7 @@ const Feed = () => {
 
     useEffect(()=>{
 
-        axios.get("https://notes-web-app-wre5.vercel.app/posts")
+        axios.get("https://notes-backend-five-phi.vercel.app/posts")
         .then((res)=>{
 
             console.log("API POSTS:", res.data.posts)
@@ -35,7 +35,7 @@ const Feed = () => {
     }
 
     const handleDelete = async (id) => {
-        await axios.delete(`https://notes-web-app-wre5.vercel.app/posts/${id}`)  
+        await axios.delete(`https://notes-backend-five-phi.vercel.app/posts/${id}`)  
 
         setPosts((prevPosts)=>{
            return prevPosts.filter((post)=> post._id !== id )
